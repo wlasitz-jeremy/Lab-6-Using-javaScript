@@ -11,7 +11,7 @@ You are encouraged to use the provided naming convention for ease of review.
 
 // INSERT YOUR CODE HERE
 
-let modelName = "XYZ";
+let modelName = "Model XYZ";
 let duration = 0;
 
 const modelLabel = document.getElementById("model-text");
@@ -32,9 +32,9 @@ const durationLabel = document.getElementById("duration-text");
 function recalculate() {
   let costlabel = document.getElementById("calculated-cost");
   let cost = 0;
-  if (modelName === "XYZ") {
+  if (modelName === "Model XYZ") {
     cost = duration * 100;
-  } else if (modelName === "CPRG") {
+  } else if (modelName === "Model CPRG") {
     cost = duration * 213;
   }
   costlabel.innerHTML = cost;
@@ -55,15 +55,17 @@ function recalculate() {
 
 let modelButton = document.getElementById("model-button");
 function changeModel() {
-  const modelLabel = document.getElementById("model-text");
-  if (modelName.innerHTML === "Model XYZ") {
-    modelName.innerHTML = "Model CPRG";
-  } else if (modelName.innerHTML === "Model CPRG") {
-    modelName.innerHTML = "Model XYZ";
+  let modelLabel = document.getElementById("model-text");
+  if (modelName === "Model XYZ") {
+    modelName = "Model CPRG";
+    modelLabel.innerHTML = modelName;
+  } else if (modelName === "Model CPRG") {
+    modelName = "Model XYZ";
+    modelLabel.innerHTML = modelName;
   }
   recalculate();
 }
-modelButton.addEventListener("click", changeModel());
+modelButton.addEventListener("click", changeModel);
 /****************** duration button logic ******************/
 /*  - first, create a variable to represent the "Change Duration" pseudo-button.
     - then, create a function called changeDuration() that will
