@@ -14,9 +14,6 @@ You are encouraged to use the provided naming convention for ease of review.
 let modelName = "Model XYZ";
 let duration = 0;
 
-const modelLabel = document.getElementById("model-text");
-const durationLabel = document.getElementById("duration-text");
-
 /****************** helper function ******************/
 /* create a function called recalculate() which will
     - create a variable to represent the calculated-cost span element. That will look something like:
@@ -53,7 +50,7 @@ function recalculate() {
 
 // INSERT YOUR CODE HERE
 
-let modelButton = document.getElementById("model-button");
+const modelButton = document.getElementById("model-button");
 function changeModel() {
   let modelLabel = document.getElementById("model-text");
   if (modelName === "Model XYZ") {
@@ -66,6 +63,7 @@ function changeModel() {
   recalculate();
 }
 modelButton.addEventListener("click", changeModel);
+
 /****************** duration button logic ******************/
 /*  - first, create a variable to represent the "Change Duration" pseudo-button.
     - then, create a function called changeDuration() that will
@@ -80,6 +78,7 @@ modelButton.addEventListener("click", changeModel);
 // INSERT YOUR CODE HERE
 let change_duration = document.getElementById("duration-button");
 function changeDuration() {
+  const durationLabel = document.getElementById("duration-text");
   let newDuration = prompt("Enter new duration:");
   duration = newDuration;
   durationLabel.innerHTML = newDuration;
